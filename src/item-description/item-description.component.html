@@ -1,0 +1,48 @@
+
+<app-nav-bar></app-nav-bar>
+
+
+  <!-- <button (click)="goBack()" class="mb-4">
+    <fa-icon [icon]="faArrowLeft"></fa-icon> Back
+  </button> -->
+  <div class="super" *ngIf="items">
+    <div class="main">
+        <div class="imgs">
+            <div style="width: 440px; height: 440px; overflow: hidden; display: flex; align-items: center; justify-content: center; letter-spacing: -1px;">
+                <img src="{{items.image}}" alt="" style="height: 100%;">
+    
+            </div>
+    
+    
+        </div>
+    
+        <div class="detail">
+            <h1 style="text-align: justify; margin: 0; font-size: 28px; font-weight: bolder; font-family: Arial, Helvetica, sans-serif;">{{items.name}}{{items.description}}</h1>
+            <hr>
+            <br>
+            <p style="margin-bottom: 10px;"><fa-icon
+              *ngFor="let star of getStars(items.rating)"
+              [icon]="star.icon"
+              [class]="star.class"
+             style="font-size:24px;"></fa-icon>  {{items.category}}</p>
+            
+            <hr>
+            <!-- <div class="quantity">
+                <button (click)="increaseValue()">+</button>
+                <input type="number" [(ngModel)]="value" readonly>
+                <button (click)="decreaseValue()">-</button>
+            </div> -->
+            
+            <input type="text" name="price" id="price" value=" RS {{items.price*value}}" style="border: none; outline: none; font-size: 24px; font-weight: bolder;
+            margin-top: 20px;">
+            <hr>
+    
+            <div class="buttons">
+                <button type="submit">BUY NOW</button>
+                <button type="submit" (click)="addToCart(items)">Add to Cart</button>
+            </div>
+        </div>
+    
+    </div>
+    </div>
+    

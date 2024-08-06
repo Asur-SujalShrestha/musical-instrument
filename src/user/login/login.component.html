@@ -1,0 +1,29 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="main">
+    <div class="login">
+        <h1 style="text-align: center; font-size: 24px; letter-spacing: 1px; font-weight: 500; color: black; margin-top: 20px; ">Login Page</h1>
+
+        <form class="loginRegister" (ngSubmit)="onLogin()">
+
+        
+            
+        <div class="inputs">
+            <label for="userName">User Name:</label>
+            <input type="userName" id="userName" placeholder="Enter your User Name" [(ngModel)]="userName" name="userName">
+        </div>
+
+        <div class="inputs" style="margin-top: 12px;">
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter your password" [(ngModel)]="password" name="password">
+        </div>
+        <p style="margin: 0; color: #000; font-size: 14px;">create new account? <a [routerLink]="['/register']" style="color: rgb(92, 40, 140); ">Register</a></p>
+
+        <div style="display: flex; align-items: center; justify-content: center;">
+        <button type="submit" style="text-align: center;">Login</button>
+        </div>
+      </form>
+
+    </div>
+</div>
+

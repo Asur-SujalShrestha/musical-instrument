@@ -1,0 +1,68 @@
+<app-nav-bar></app-nav-bar>
+<div class="px-32">
+  <div class="flex flex-col gap-3">
+    <div class="flex flex-col justify-center relative">
+      <img src="../assets/music.jpg" alt="" class="w-full rounded-[20px]" />
+      <h1
+        class="absolute top-[115px] left-20 text-orange-400 text-3xl font-bold"
+      >
+        Store for Musical Instrument
+      </h1>
+      <p class="absolute top-[150px] left-20 text-slate-300 text-lg">
+        Find the best instruments to create your perfect sound
+      </p>
+    </div>
+    <h1 class="font-semibold text-2xl">Explore Our Category</h1>
+    <p class="font-semibold text-gray-600 w-[70%] mb-4">
+      Explore our wide selection of musical instruments, ranging from classical
+      to contemporary. Whether you're a beginner or a seasoned musician, find
+      the perfect instrument that suits your style and needs.
+    </p>
+  </div>
+  <div class="flex justify-around">
+    <div *ngFor="let data of data">
+      <a [routerLink]="[data.link]">
+        <img
+          [src]="data.image"
+          alt="{{ data.name }}"
+          class="h-[150px] transition-shadow duration-300 ease-in-out rounded-lg cursor-pointer hover:shadow-lg"
+        >
+      </a>
+      <p class="text-center text-xl text-gray-600">{{ data.name }}</p>
+    </div>
+  </div>
+  <hr class="h-0.5 bg-slate-200 rounded-full mb-4" />
+  <h1 class="font-semibold text-2xl mb-4">Popular now</h1>
+  <div class="grid grid-cols-4 gap-6">
+    <div *ngFor="let data_list of data_list">
+      <a
+        [routerLink]="['/desc']"[queryParams]="{ id: data_list.id }" 
+        class="shadow-lg rounded-lg transition-transform duration-300 ease-in-out hover:shadow-xl hover:scale-105 flex flex-col h-full"
+      >
+      <div class="flex justify-center">
+        <img
+        [src]="data_list.image"
+        alt="{{ data_list.name }}"
+        class="h-[150px]" 
+      />
+      </div>
+        
+        <div class="px-4 py-2 flex-1 flex flex-col justify-between">
+          <div class="flex justify-between items-center gap-2">
+            <p class="font-semibold ">{{ data_list.name }}</p>
+            <div class="flex items-center">
+              <fa-icon
+                *ngFor="let star of getStars(data_list.rating)"
+                [icon]="star.icon"
+                [class]="star.class"
+              ></fa-icon>
+            </div>
+          </div>
+          <p class="text-sm mb-2 flex-1 text-slate-600">{{ data_list.description }}</p>
+          <p class="text-green-500 font-semibold">RS {{ data_list.price }}</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  
+</div>

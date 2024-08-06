@@ -1,0 +1,30 @@
+<app-nav-bar></app-nav-bar>
+<div class="p-32">
+    <div class="grid grid-cols-4 gap-6">
+        <div *ngFor="let guitar of guitar">
+          <a [routerLink]="['/desc']" [queryParams]="{category:guitar.category, id: guitar.id }" class="shadow-lg rounded-lg transition-transform duration-300 ease-in-out hover:shadow-xl hover:scale-105 flex flex-col h-full">
+          <div class="flex justify-center">
+            <img
+            [src]="guitar.image"
+            alt="{{ guitar.name }}"
+            class="h-[150px]" 
+          />
+          </div>        
+            <div class="px-4 py-2 flex-1 flex flex-col justify-between">
+              <div class="flex justify-between items-center gap-2">
+                <p class="font-semibold ">{{ guitar.name }}</p>
+                <div class="flex items-center">
+                  <fa-icon
+                    *ngFor="let star of getStars(guitar.rating)"
+                    [icon]="star.icon"
+                    [class]="star.class"
+                  ></fa-icon>
+                </div>
+              </div>
+              <p class="text-sm mb-2 flex-1 text-slate-600">{{ guitar.description }}</p>
+              <p class="text-green-500 font-semibold">{{ guitar.price }}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+</div>
